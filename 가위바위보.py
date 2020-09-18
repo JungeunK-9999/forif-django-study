@@ -4,6 +4,19 @@ import time
 AI = 0
 PLAYER = 0
 
+def choicing():
+    try:
+        user_choice = int(input("1.가위 2.바위 3.보  >>> "))
+        if user_choice!=1 and user_choice!=2 and user_choice!=3:
+            print('1~3 사이로 입력해주세요')
+            print()
+            return choicing()
+        return user_choice
+    except ValueError:
+        print('잘못된 입력입니다. 숫자로 입력해주세요.')
+        print()
+        return choicing()
+
 def convert(number):
     if number == 1:
         return "가위"
@@ -14,13 +27,13 @@ def convert(number):
 
 def game():
     robot = random.randint(1,3)
-    choice = int(input("1.가위 2.바위 3.보  >>> "))
+    choice = choicing()
  
     print("두구두구두구두구두구...결과는..?!")
-    time.sleep(0.2)
+    time.sleep(2)
     print(f"robot: {convert(robot)}")
     print(f"you: {convert(choice)}")
-    time.sleep(0.1)
+    time.sleep(1)
 
     if robot == 1 and choice == 3:
         robot = 4
