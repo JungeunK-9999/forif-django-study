@@ -1,6 +1,7 @@
 from django.urls import path
 from core import views
 
-urlpatterns=[
+urlpatterns = [
     path('', views.home, name='home'),
+    path('create', views.create_hero, name='create_hero'),
 ]
